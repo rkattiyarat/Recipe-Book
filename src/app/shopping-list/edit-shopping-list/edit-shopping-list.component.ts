@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, ViewChild, EventEmitter, Output, OnInit } from '@angular/core';
 import { Ingredient } from '../../shared/ingredient.model';
 
 @Component({
@@ -6,11 +6,16 @@ import { Ingredient } from '../../shared/ingredient.model';
   templateUrl: './edit-shopping-list.component.html',
   styleUrl: './edit-shopping-list.component.css'
 })
-export class EditShoppingListComponent {
+export class EditShoppingListComponent implements OnInit{
 
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('amountInput') amountInputRef: ElementRef;
   @Output() ingredientAdded = new EventEmitter<Ingredient>();
+
+  constructor() { }
+
+  ngOnInit() {
+  }
 
 
   onAddItem() {
